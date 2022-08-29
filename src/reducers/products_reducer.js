@@ -48,7 +48,7 @@ const products_reducer = (state, action) => {
     case SINGLE_PRODUCT_ERROR:
       return {
         ...state,
-        single_product_loading: false.valueOf,
+        single_product_loading: false,
         single_product_error: true,
       };
     default:
