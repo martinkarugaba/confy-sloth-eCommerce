@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 
-const ProductImages = () => {
+const ProductImages = ({ images }) => {
+  console.log(images);
   return <h4>product images</h4>
 }
 
