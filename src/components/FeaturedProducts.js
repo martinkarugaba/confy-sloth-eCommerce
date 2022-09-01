@@ -13,7 +13,7 @@ const FeaturedProducts = () => {
     featured_products: featured,
   } = useProductsContext();
 
-  console.log(featured.image);
+  //console.log(featured.image);
 
   if (loading) return <Loading />;
   if (error) return <Error />;
