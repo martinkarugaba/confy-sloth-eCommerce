@@ -1,10 +1,10 @@
 import {
   SIDEBAR_OPEN,
   SIDEBAR_CLOSE,
-  LOAD_PRODUCTS,
+  PRODUCTS_LOADING,
   GET_PRODUCTS_SUCCESS,
   GET_PRODUCTS_ERROR,
-  LOAD_SINGLE_PRODUCT,
+  SINGLE_PRODUCT_LOADING,
   SINGLE_PRODUCT_SUCCESS,
   SINGLE_PRODUCT_ERROR,
 } from '../actions';
@@ -15,7 +15,7 @@ const products_reducer = (state, action) => {
       return { ...state, isSidebarOpen: true };
     case SIDEBAR_CLOSE:
       return { ...state, isSidebarOpen: false };
-    case LOAD_PRODUCTS:
+    case PRODUCTS_LOADING:
       return { ...state, products_loading: true };
     case GET_PRODUCTS_SUCCESS:
       const featured_products = action.payload.filter(
@@ -33,7 +33,7 @@ const products_reducer = (state, action) => {
         products_loading: false,
         products_error: true,
       };
-    case LOAD_SINGLE_PRODUCT:
+    case SINGLE_PRODUCT_LOADING:
       return {
         ...state,
         single_product_loading: true,

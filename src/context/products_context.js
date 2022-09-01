@@ -5,10 +5,10 @@ import { products_url as url } from '../utils/constants';
 import {
   SIDEBAR_OPEN,
   SIDEBAR_CLOSE,
-  LOAD_PRODUCTS,
+  PRODUCTS_LOADING,
   GET_PRODUCTS_SUCCESS,
   GET_PRODUCTS_ERROR,
-  LOAD_SINGLE_PRODUCT,
+  SINGLE_PRODUCT_LOADING,
   SINGLE_PRODUCT_SUCCESS,
   SINGLE_PRODUCT_ERROR,
 } from '../actions';
@@ -38,7 +38,7 @@ export const ProductsProvider = ({ children }) => {
   };
 
   const fetchProducts = async (url) => {
-    dispatch({ type: LOAD_PRODUCTS });
+    dispatch({ type: PRODUCTS_LOADING });
     try {
       const response = await axios.get(url);
       const products = response.data;
@@ -49,7 +49,7 @@ export const ProductsProvider = ({ children }) => {
   };
 
   const fetchSingleProduct = async (url) => {
-    dispatch({ type: LOAD_SINGLE_PRODUCT });
+    dispatch({ type: SINGLE_PRODUCT_LOADING });
     try {
       const response = await axios.get(url);
       const singleProduct = response.data;
@@ -68,7 +68,12 @@ export const ProductsProvider = ({ children }) => {
 
   return (
     <ProductsContext.Provider
-      value={{ ...state, openSidebar, closeSidebar, fetchSingleProduct }}
+      value={{
+        ...state,
+        openSidebar,
+        closeSidebar,
+        fetchSingleProduct,
+      }}
     >
       {children}
     </ProductsContext.Provider>
