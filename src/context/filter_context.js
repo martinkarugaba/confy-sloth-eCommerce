@@ -54,10 +54,15 @@ export const FilterProvider = ({ children }) => {
   };
 
   useEffect(() => {
+    dispatch({ type: FILTER_PRODUCTS });
     dispatch({ type: SORT_PRODUCTS });
-  }, [products, state.sort]);
+  }, [products, state.sort, state.filters]);
 
-  const updateFilters = (e) => {};
+  const updateFilters = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    dispatch({ type: UPDATE_FILTERS, payload: { name, value } });
+  };
 
   const clearFilters = () => {};
 

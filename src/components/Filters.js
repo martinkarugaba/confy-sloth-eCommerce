@@ -20,14 +20,25 @@ const Filters = () => {
     clearFilters,
     all_products,
   } = useFilterContext();
-  return <Wrapper>
-    <div className="content">
-      <form onSubmit={(e) => e.preventDefault()}>
-        {/* search input */}
-        
-      </form>
-    </div>
-  </Wrapper>;
+  return (
+    <Wrapper>
+      <div className="content">
+        <form onSubmit={(e) => e.preventDefault()}>
+          {/* search input */}
+          <div className="form-control">
+            <input
+              type="text"
+              name="text"
+              placeholder="search"
+              className="search-input"
+              value={text}
+              onChange={updateFilters}
+            />
+          </div>
+        </form>
+      </div>
+    </Wrapper>
+  );
 };
 
 const Wrapper = styled.section`
