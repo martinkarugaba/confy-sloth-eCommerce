@@ -23,6 +23,7 @@ const SingleProductPage = () => {
     single_product: product,
     fetchSingleProduct,
   } = useProductsContext();
+  console.log(product);
 
   useEffect(() => {
     fetchSingleProduct(`${url}${id}`);

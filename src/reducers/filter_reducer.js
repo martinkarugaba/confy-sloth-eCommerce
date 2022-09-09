@@ -106,7 +106,18 @@ const filter_reducer = (state, action) => {
           return product.colors.find((c) => c === color);
         });
       }
-      // end filter by color
+
+      //filter by price
+      temp_Products = temp_Products.filter(
+        (product) => product.price <= price
+      );
+
+      // filter by shipping
+      if (shipping) {
+        temp_Products = temp_Products.filter(
+          (product) => product.shipping === true
+        );
+      }
 
       return { ...state, filtered_products: temp_Products };
 

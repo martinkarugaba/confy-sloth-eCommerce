@@ -37,6 +37,7 @@ export const ProductsProvider = ({ children }) => {
     dispatch({ type: SIDEBAR_CLOSE });
   };
 
+  // fetch all products
   const fetchProducts = async (url) => {
     dispatch({ type: PRODUCTS_LOADING });
     try {
@@ -48,6 +49,7 @@ export const ProductsProvider = ({ children }) => {
     }
   };
 
+  // fetch single product
   const fetchSingleProduct = async (url) => {
     dispatch({ type: SINGLE_PRODUCT_LOADING });
     try {
