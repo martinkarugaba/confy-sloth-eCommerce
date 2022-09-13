@@ -11,7 +11,7 @@ import {
 const getLocalStorage = () => {
   let cart = localStorage.getItem('cart');
   if (cart) {
-  return JSON.parse(localStorage.getItem('cart'))
+    return JSON.parse(localStorage.getItem('cart'));
   } else {
     return [];
   }
@@ -38,13 +38,17 @@ export const CartProvider = ({ children }) => {
   };
 
   // remove item
-  const removeItem = (id) => {};
+  const removeItem = (id) => {
+    dispatch({ type: REMOVE_CART_ITEM, payload: id });
+  };
 
   // toggle amount
   const toggleAmount = (id, value) => {};
 
   // clear cart
-  const clearCart = () => {};
+  const clearCart = () => {
+    dispatch({ type: CLEAR_CART });
+  };
 
   // local storage
   useEffect(() => {

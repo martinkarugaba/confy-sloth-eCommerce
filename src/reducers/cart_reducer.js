@@ -10,7 +10,7 @@ const cart_reducer = (state, action) => {
   switch (action.type) {
     case ADD_TO_CART:
       const { id, color, amount, product } = action.payload;
-      
+
       // check if item alreay exists in the cart
       const tempItem = state.cart.find(
         (item) => item.id === id + color
@@ -40,6 +40,14 @@ const cart_reducer = (state, action) => {
         };
         return { ...state, cart: [...state.cart, newItem] };
       }
+
+    case REMOVE_CART_ITEM:
+      const tempCart = state.cart.filter(
+        (item) => item.id !== action.payload
+      );
+      return { ...state, cart: tempCart };
+    case CLEAR_CART:
+      return { ...state, cart: [] };
     default:
       throw new Error(`No Matching "${action.type}" - action type`);
   }
