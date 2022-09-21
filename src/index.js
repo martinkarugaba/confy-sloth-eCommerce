@@ -12,15 +12,25 @@ import { Auth0Provider } from '@auth0/auth0-react';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
+// domain - dev-cbze-cz1.eu.auth0.com
+// client id - cCyzorAOqBFTP1oQUl5ZOHZYPhWPGoto
+
 root.render(
   <React.StrictMode>
-    <ProductsProvider>
-      <FilterProvider>
-        <CartProvider>
-          <App />
-        </CartProvider>
-      </FilterProvider>
-    </ProductsProvider>
+    <AuthProvider
+      domain={process.env.REACT_APP_AUTH0_DOMAIN}
+      clientId={process.env.REACT_APP_AUTH0_CLIENTID}
+      redirectUri={window.location.origin}
+      cacheLocation='localstorage'
+    >
+      <ProductsProvider>
+        <FilterProvider>
+          <CartProvider>
+            <App />
+          </CartProvider>
+        </FilterProvider>
+      </ProductsProvider>
+    </AuthProvider>
   </React.StrictMode>
 );
 
