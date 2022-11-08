@@ -17,20 +17,22 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <React.StrictMode>
-    <AuthProvider
+    <Auth0Provider
       domain={process.env.REACT_APP_AUTH0_DOMAIN}
       clientId={process.env.REACT_APP_AUTH0_CLIENTID}
       redirectUri={window.location.origin}
-      cacheLocation='localstorage'
+      cacheLocation="localstorage"
     >
-      <ProductsProvider>
-        <FilterProvider>
-          <CartProvider>
-            <App />
-          </CartProvider>
-        </FilterProvider>
-      </ProductsProvider>
-    </AuthProvider>
+      <UserProvider>
+        <ProductsProvider>
+          <FilterProvider>
+            <CartProvider>
+              <App />
+            </CartProvider>
+          </FilterProvider>
+        </ProductsProvider>
+      </UserProvider>
+    </Auth0Provider>
   </React.StrictMode>
 );
 
